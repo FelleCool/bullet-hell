@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvh6tgy52avf5"]
+
+[ext_resource type="Script" path="res://scripts/xp_token.gd" id="1_6jruw"]
+[ext_resource type="Texture2D" uid="uid://b8mlwp4n3f5p0" path="res://assets/babyum.png" id="1_srgcr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fypsb"]
+
+[node name="Area2D" type="Area2D"]
+scale = Vector2(1.011, 1)
+script = ExtResource("1_6jruw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0101096, 0.01)
+texture = ExtResource("1_srgcr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_fypsb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
