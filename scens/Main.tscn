@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://yohpyrctirk2"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_7cle0"]
+[ext_resource type="PackedScene" uid="uid://cqbdewnatk47w" path="res://scens/Player.tscn" id="2_4taai"]
+[ext_resource type="PackedScene" uid="uid://c2xgei7wpf45d" path="res://scens/bullets/BulletTest.tscn" id="2_ck2hp"]
+[ext_resource type="PackedScene" uid="uid://dbdweixv0kb3c" path="res://scens/Enamy.tscn" id="3_mbr62"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_7cle0")
+bullet_scene = ExtResource("2_ck2hp")
+
+[node name="Enamy" parent="." instance=ExtResource("3_mbr62")]
+position = Vector2(459, 37)
+
+[node name="Player" parent="." instance=ExtResource("2_4taai")]
+
+[connection signal="player_posision" from="." to="Enamy" method="_on_main_player_posision"]
