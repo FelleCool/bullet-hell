@@ -64,14 +64,19 @@ func _spawn_xp_token(xp:int, pos: Vector2):
 		var xpToken = xp_scene.instantiate()
 		xpToken.position = pos
 		xpToken.set_meta("xp", xp)
-		xpToken.connect("xp_collected", _xp_collected)
+		xpToken.connect("xp_collected", _leveld_handler)
 		add_child(xpToken)
 	else:
 		push_error("xp_scene är inte satt!")
 
-func _xp_collected(xp: int):
+var totalXp = 0
+func _leveld_handler(xp: int):
 	var xpBar = $Control/ProgressBar
-	xpBar.value += xp
-	if xpBar.value == 100:
-		xpBar.value = 0
-	
+	totalXp+= xp
+	xpBar.value = totalXp
+	if xpBar.value == xpBar.max_value:
+		totalXp -= xpBar.value
+		xpBar.value = totalXp
+
+func level_up_window():
+	pass
