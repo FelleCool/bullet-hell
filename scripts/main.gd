@@ -15,8 +15,6 @@ var player_position
 
 func _ready() -> void:
 	spawn_player()
-	var tree = $".".get_tree_string()
-	print(tree)
 	
 
 func _physics_process(delta: float) -> void:
@@ -65,9 +63,15 @@ func _spawn_xp_token(xp:int, pos: Vector2):
 	if xp_scene:
 		var xpToken = xp_scene.instantiate()
 		xpToken.position = pos
+		xpToken.set_meta("xp", xp)
+		xpToken.connect("xp_collected", _xp_collected)
 		add_child(xpToken)
 	else:
 		push_error("xp_scene är inte satt!")
 
-	
+func _xp_collected(xp: int):
+	var xpBar = $Control/ProgressBar
+	xpBar.value += xp
+	if xpBar.value == 100:
+		xpBar.value = 0
 	

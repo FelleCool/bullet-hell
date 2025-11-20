@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://yohpyrctirk2"]
+[gd_scene load_steps=7 format=3 uid="uid://yohpyrctirk2"]
 
-[ext_resource type="Script" path="res://scripts/main.gd" id="1_7cle0"]
+[ext_resource type="Script" uid="uid://ubhncnt4rd5l" path="res://scripts/main.gd" id="1_7cle0"]
 [ext_resource type="PackedScene" uid="uid://cqbdewnatk47w" path="res://scens/Player.tscn" id="2_4taai"]
 [ext_resource type="PackedScene" uid="uid://c2xgei7wpf45d" path="res://scens/bullets/BulletTest.tscn" id="2_ck2hp"]
 [ext_resource type="PackedScene" uid="uid://dvh6tgy52avf5" path="res://scens/XpToken.tscn" id="3_alpny"]
 [ext_resource type="PackedScene" uid="uid://dbdweixv0kb3c" path="res://scens/Enamy.tscn" id="3_mbr62"]
+[ext_resource type="PackedScene" uid="uid://b0i5m6ibwic15" path="res://scens/progress_bar_xp.tscn" id="6_vtxkw"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_7cle0")
@@ -12,3 +13,16 @@ enamy_scene = ExtResource("3_mbr62")
 bullet_scene = ExtResource("2_ck2hp")
 xp_scene = ExtResource("3_alpny")
 player_scene = ExtResource("2_4taai")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="ProgressBar" parent="Control" instance=ExtResource("6_vtxkw")]
+layout_mode = 1
+offset_left = -2.538208
+offset_top = -50.611084
+offset_right = 1.461792
+offset_bottom = -23.611084
