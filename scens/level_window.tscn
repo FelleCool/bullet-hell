@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://brkkqpeqhork6"]
+
+[ext_resource type="Script" uid="uid://7aonil7u15st" path="res://scripts/level_window.gd" id="1_nij8j"]
+[ext_resource type="Script" uid="uid://rr3b3f6rnbc1" path="res://scripts/levelup_choice.gd" id="2_nij8j"]
+
+[node name="LevelWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_nij8j")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+text = "Level up!
+"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="level_choice" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("2_nij8j")
+metadata/_custom_type_script = "uid://rr3b3f6rnbc1"
+
+[node name="level_choice2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("2_nij8j")
+metadata/_custom_type_script = "uid://rr3b3f6rnbc1"
+
+[node name="level_choice3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("2_nij8j")
+metadata/_custom_type_script = "uid://rr3b3f6rnbc1"

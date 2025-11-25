@@ -2,6 +2,7 @@ extends Area2D
 
 signal xp_collected(xp:int)
 
+var xp_amount
 #collect xp
 func _on_body_entered(body: Node2D) -> void:
 	print(body)

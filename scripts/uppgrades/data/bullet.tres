@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://bs8jgcekec6k7"]
+
+[ext_resource type="Texture2D" uid="uid://c74u1nqmpbywf" path="res://assets/icon.svg" id="1_f702s"]
+[ext_resource type="Script" uid="uid://o6jy5oypyd6u" path="res://scripts/uppgrades/ability.gd" id="2_hg7bg"]
+
+[resource]
+script = ExtResource("2_hg7bg")
+id = "bullet"
+name = "Bullet"
+description = "A simpel bullet."
+icon = ExtResource("1_f702s")
+damage = 12
+metadata/_custom_type_script = "uid://o6jy5oypyd6u"

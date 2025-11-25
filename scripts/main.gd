@@ -77,6 +77,6 @@ func _leveld_handler(xp: int):
 	if xpBar.value == xpBar.max_value:
 		totalXp -= xpBar.value
 		xpBar.value = totalXp
-
+ 
 func level_up_window():
 	pass
