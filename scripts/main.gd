@@ -38,6 +38,14 @@ func spawn_player():
 	else:
 		push_error("player_scene är inte satt!")
 
+func shoot():
+	if bullet_scene:
+		var b = bullet_scene.instantiate()
+		b.position = player_position 
+		add_child(b)
+	else:
+		push_error("bullet_scene är inte satt!")
+
 func spawn_enamy():
 	if enamy_scene:
 		var e = enamy_scene.instantiate()
@@ -47,14 +55,6 @@ func spawn_enamy():
 	else:
 		push_error("enamy_scene är inte satt!")
 
-#b för bullet har b för att bullet redan finns i de globala variablarna
-func shoot():
-	if bullet_scene:
-		var b = bullet_scene.instantiate()
-		b.position = player_position 
-		add_child(b)
-	else:
-		push_error("bullet_scene är inte satt!")
 
 func _on_enemy_died(xp:int , pos: Vector2):
 	call_deferred("_spawn_xp_token", xp, pos)
@@ -77,6 +77,17 @@ func _leveld_handler(xp: int):
 	if xpBar.value == xpBar.max_value:
 		totalXp -= xpBar.value
 		xpBar.value = totalXp
+		level_up_window()
+
+func pause_game():
+	if !get_tree().paused:
+		get_tree().paused = true
+	else:
+		get_tree().paused = false
+
  
 func level_up_window():
-	pass
+	$LevelWindow.visible = true
+	pause_game()
+	
+	

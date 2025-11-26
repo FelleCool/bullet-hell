@@ -1,5 +1,8 @@
 extends Control
 
+signal uppgrade_chosen(uppgrade: String)
+
+
 @onready var LC1: level_choice = %level_choice
 @onready var LC2: level_choice = %level_choice2
 @onready var LC3: level_choice = %level_choice3
@@ -29,5 +32,7 @@ func get_random_3_abilities() -> Array[Ability]:
 
 
 func _on_button_pressed(sender: level_choice):
+	uppgrade_chosen.emit(sender.upgrade.id)
 	print("Du tryckte på:", sender.name)
 	print("Och valde ability:", sender.upgrade.name)
+	queue_free()

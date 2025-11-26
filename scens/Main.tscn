@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://brkkqpeqhork6" path="res://scens/level_window.tscn" id="7_n2oci"]
 
 [node name="main" type="Node2D"]
+visible = false
 script = ExtResource("1_7cle0")
 enamy_scene = ExtResource("3_mbr62")
 bullet_scene = ExtResource("2_ck2hp")
@@ -29,3 +30,4 @@ offset_right = 1.461792
 offset_bottom = -23.611084
 
 [node name="LevelWindow" parent="." instance=ExtResource("7_n2oci")]
+process_mode = 2
