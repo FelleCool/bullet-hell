@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_7pyk7")
 id = "bullet"
-name = "Bullet"
+name = "Bullet1"
 description = "A simpel bullet."
 icon = ExtResource("1_l4q1d")
 damage = 12

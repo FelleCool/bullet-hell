@@ -11,10 +11,14 @@ func _ready() -> void:
 	print("Buttons: ", LC1, LC2, LC3)
 	print(get_random_3_abilities())
 
-func get_random_3_abilities() -> Array[Ability]:
+func get_random_3_abilities() -> Array:
 	var all = abilityDatabase.abilities
+	all.append_array(abilityDatabase.upgrades)
+	for i in all:
+		print(all[i].name)
+		
 	var level_choice_list: Array[level_choice] = [LC1, LC2, LC3]
-	var abilities: Array[Ability] = []
+	var abilities= []
 	
 	for i in range(3):
 		abilities.append(all.pick_random())
@@ -35,4 +39,11 @@ func _on_button_pressed(sender: level_choice):
 	uppgrade_chosen.emit(sender.upgrade.id)
 	print("Du tryckte på:", sender.name)
 	print("Och valde ability:", sender.upgrade.name)
+	pause_game()
 	queue_free()
+	
+func pause_game():
+	if !get_tree().paused:
+		get_tree().paused = true
+	else:
+		get_tree().paused = false

@@ -33,8 +33,10 @@ func _input(event):
 
 func spawn_player():
 	if player_scene:
+		print("test")
 		var p = player_scene.instantiate() 
 		add_child(p)
+		move_child(p, 0)
 	else:
 		push_error("player_scene är inte satt!")
 
@@ -43,6 +45,7 @@ func shoot():
 		var b = bullet_scene.instantiate()
 		b.position = player_position 
 		add_child(b)
+		move_child(b, 1)
 	else:
 		push_error("bullet_scene är inte satt!")
 
@@ -52,6 +55,8 @@ func spawn_enamy():
 		e.position = get_global_mouse_position() 
 		e.connect("died", Callable(self, "_on_enemy_died"))
 		add_child(e)
+		move_child(e, 2)
+		print("spawn enamy")
 	else:
 		push_error("enamy_scene är inte satt!")
 
@@ -82,12 +87,16 @@ func _leveld_handler(xp: int):
 func pause_game():
 	if !get_tree().paused:
 		get_tree().paused = true
+		print("pausing")
 	else:
 		get_tree().paused = false
+		print("unpaused")
 
  
 func level_up_window():
-	$LevelWindow.visible = true
+	var packed_scene = load("res://scens/level_window.tscn")
+	var instance = packed_scene.instantiate()
+	add_child(instance)
 	pause_game()
 	
 	

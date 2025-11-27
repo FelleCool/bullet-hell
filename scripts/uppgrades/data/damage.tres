@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://soi82w3j48k2"]
+
+[ext_resource type="Script" uid="uid://c0ifs1wcbkxgd" path="res://scripts/uppgrades/upgrade.gd" id="1_lnlh0"]
+[ext_resource type="Texture2D" uid="uid://bh8jtspr3ets3" path="res://assets/aldersmaktordningen.png" id="1_ltw2l"]
+
+[resource]
+script = ExtResource("1_lnlh0")
+id = "damage"
+name = "Damage"
+description = "Incrise your damage"
+icon = ExtResource("1_ltw2l")
+level_value_change = 2
+metadata/_custom_type_script = "uid://c0ifs1wcbkxgd"
