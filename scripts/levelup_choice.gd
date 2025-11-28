@@ -1,4 +1,5 @@
 extends Button
 class_name level_choice
 
-var upgrade: Ability
+var ability: Ability
+var upgrade: Upgrade
